@@ -1,1 +1,2 @@
-<h1>Participando da Semana React JS do Sujeito Programador. Projeto em construção 🛠️<h1/>
+<h1>Participando da Semana React JS do Sujeito Programador.</h1>
+<h2> Projeto em construção 🛠️</h2>
