@@ -15,9 +15,9 @@ The project was made on Sujeito programador's React Workshop. We created a websi
 
 After cloning the repository, it's necessary to run npm install on the project directory. Then, just run npm run start to serve locally.
 
-![preview](./.github/1)
-![preview](./.github/2)
-![preview](./.github/3)
-![preview](./.github/4)
+![preview](./.github/1.png)
+![preview](./.github/2.png)
+![preview](./.github/3.png)
+![preview](./.github/4.png)
 
 Desenvolvido com 💘 por Natasha Limeres
