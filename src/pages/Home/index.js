@@ -1,7 +1,7 @@
 import "./home.css";
 import { useState, useEffect } from "react";
 import { Social } from "../../components/Social";
-import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaYoutube } from "react-icons/fa";
 
 import {
   getDocs,
@@ -51,7 +51,7 @@ export default function Home() {
           setSocialLinks({
             facebook: snapshot.data().facebook,
             instagram: snapshot.data().instagram,
-            youtube: snapshot.data().youtube,
+            github: snapshot.data().github,
           });
         }
       });
@@ -85,8 +85,8 @@ export default function Home() {
               <FaFacebook size={35} color="#FFF" />
             </Social>
 
-            <Social url={socialLinks?.youtube}>
-              <FaYoutube size={35} color="#FFF" />
+            <Social url={socialLinks?.github}>
+              <FaGithub size={35} color="#FFF" />
             </Social>
 
             <Social url={socialLinks?.instagram}>

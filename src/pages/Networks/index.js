@@ -17,7 +17,7 @@ import { toast } from 'react-toastify'
 export default function Networks() {
     const [facebook, setFacebook] = useState('');
     const [instagram, setInstagram] = useState('');
-    const [youtube, setYoutube] = useState('');
+    const [github, setGithub] = useState('');
 
     useEffect( () => {
         function loadLinks(){
@@ -27,7 +27,7 @@ export default function Networks() {
                 if(snapshot.data() !== undefined){
                     setFacebook(snapshot.data().facebook)
                     setInstagram(snapshot.data().instagram)
-                    setYoutube(snapshot.data().youtube)
+                    setYoutube(snapshot.data().github)
                 }
             })
         }
@@ -39,7 +39,7 @@ export default function Networks() {
         setDoc(doc(db,'social','link'), {
             facebook: facebook,
             instagram: instagram,
-            youtube: youtube
+            github: github
         })
         .then(() => {
             console.log('URLs salvas com sucesso!')
@@ -69,11 +69,11 @@ export default function Networks() {
                 value={instagram}
                 onChange={ (e) => setInstagram(e.target.value)}
                 />
-                <label className='label'>Link do Youtube</label>
+                <label className='label'>Link do Github</label>
                 <Input 
-                placeholder='Digite a url do Youtube...'
-                value={youtube}
-                onChange={ (e) => setYoutube(e.target.value)}
+                placeholder='Digite a url do Github...'
+                value={github}
+                onChange={ (e) => setGithub(e.target.value)}
                 />
 
             <button type='submit' className='btn-register'>
