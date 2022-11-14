@@ -27,7 +27,7 @@ export default function Networks() {
                 if(snapshot.data() !== undefined){
                     setFacebook(snapshot.data().facebook)
                     setInstagram(snapshot.data().instagram)
-                    setYoutube(snapshot.data().github)
+                    setGithub(snapshot.data().github)
                 }
             })
         }
