@@ -1,47 +1,100 @@
-import './home.css'
-import { Social } from '../../components/Social'
-import { FaTwitter, FaInstagram, FaYoutube } from 'react-icons/fa'
+import "./home.css";
+import { useState, useEffect } from "react";
+import { Social } from "../../components/Social";
+import { FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 
-export default function Home () {
-    return (
-        <div className='home-container'>
-            <h1>Natasha Limeres</h1>
-            <span>Veja meus links 👇</span>
+import {
+  getDocs,
+  collection,
+  orderBy,
+  query,
+  doc,
+  getDoc,
+} from "firebase/firestore";
 
-    <main className='links'>
-            <section className='link-area'>
-                <a href='#'>
-                    <p className='link-text'>Canal no Youtube</p>
-                </a>
-            </section>
+import { db } from "../../services/firebaseConnection";
 
-            <section className='link-area'>
-                <a href='#'>
-                    <p className='link-text'>LinkedIn</p>
-                </a>
-            </section>
+export default function Home() {
+  const [links, setLinks] = useState([]);
+  const [socialLinks, setSocialLinks] = useState({});
 
-            <section className='link-area'>
-                <a href='#'>
-                    <p className='link-text'>Github</p>
-                </a>
-            </section>
+  useEffect(() => {
+    function loadLinks() {
+      const linksRef = collection(db, "links");
+      const queryRef = query(linksRef, orderBy("created", "asc"));
 
-            <footer>
-                <Social url="https://twitter.com/nahtashinha" >
-                    <FaTwitter size={35} color="#FFF" />
-                </Social>
+      getDocs(queryRef).then((snapshot) => {
+        let lista = [];
+        snapshot.forEach((doc) => {
+          lista.push({
+            id: doc.id,
+            name: doc.data().name,
+            url: doc.data().url,
+            bg: doc.data().bg,
+            color: doc.data().color,
+          });
+        });
 
-                <Social url="https://www.youtube.com/channel/UCEKtjs92Rqzh_iRCCf_HQeA" >
-                    <FaYoutube size={35} color="#FFF" />
-                </Social>
+        setLinks(lista);
+      });
+    }
 
-                <Social url="https://www.instagram.com/natashalimeres/" >
-                    <FaInstagram size={35} color="#FFF" />
-                </Social>
+    loadLinks();
+  }, []);
 
-            </footer>
-    </main>
-        </div>
-    )
+  useEffect(() => {
+    function loadSocialLinks() {
+      const docRef = doc(db, "social", "link");
+
+      getDoc(docRef).then((snapshot) => {
+        if (snapshot.data !== undefined) {
+          setSocialLinks({
+            facebook: snapshot.data().facebook,
+            instagram: snapshot.data().instagram,
+            youtube: snapshot.data().youtube,
+          });
+        }
+      });
+    }
+    loadSocialLinks();
+  }, []);
+
+  return (
+    <div className="home-container">
+      <h1>Natasha Limeres</h1>
+      <span>Veja meus links 👇</span>
+
+      <main className="links">
+        {links.map((item) => (
+          <section
+            key={item.id}
+            className="link-area"
+            style={{ backgroundColor: item.bg }}
+          >
+            <a href={item.url} target="blank">
+              <p className="link-text" style={{ color: item.color }}>
+                {item.name}
+              </p>
+            </a>
+          </section>
+        ))}
+
+        {links.length !== 0 && Object.keys(socialLinks).length > 0 && (
+          <footer>
+            <Social url={socialLinks?.facebook}>
+              <FaFacebook size={35} color="#FFF" />
+            </Social>
+
+            <Social url={socialLinks?.youtube}>
+              <FaYoutube size={35} color="#FFF" />
+            </Social>
+
+            <Social url={socialLinks?.instagram}>
+              <FaInstagram size={35} color="#FFF" />
+            </Social>
+          </footer>
+        )}
+      </main>
+    </div>
+  );
 }
