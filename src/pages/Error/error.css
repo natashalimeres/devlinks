@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    color: white;
+    color: #FFF;
 }
 
 .error h1 {
@@ -23,7 +23,7 @@
     padding: 4px 16px;
     margin-top: 14px;
     border-radius: 4px;
-    color: black;
+    color: #000;
     transition: background-color, transform 0.5s;
 }
 

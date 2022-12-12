@@ -131,7 +131,7 @@ export default function Admin () {
 
                 <button className='btn-register' type='submit'>
                     Cadastrar
-                    <MdAddLink size={24} color='white' />
+                    <MdAddLink size={24} color='#FFF' />
                 </button>
 
             </form>
@@ -147,7 +147,7 @@ export default function Admin () {
                 <p>{item.name}</p>
                 <div>
                     <button className='btn-delete' onClick={ () => handleDeleteLink(item.id)}>
-                    <FiTrash2 size={18} color='white'/>
+                    <FiTrash2 size={18} color='#FFF'/>
                     </button>
                 </div>
             </article>

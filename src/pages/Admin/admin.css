@@ -7,7 +7,7 @@
 }
 
 .label {
-    color: white;
+    color: #FFF;
     font-weight: medium;
     margin-top: 8px;
     margin-bottom: 14px;
@@ -35,7 +35,7 @@
 }
 
 .title {
-    color: white;
+    color: #FFF;
     margin: 28px 0 14px 0;
 }
 
@@ -66,7 +66,7 @@
 .btn-delete {
     border: 1.5px dashed white;
     color: white;
-    background-color: black;
+    background-color: #000;
     padding: 4px 8px;
     border-radius: 2px;
 }

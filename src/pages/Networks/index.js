@@ -77,7 +77,7 @@ export default function Networks() {
                 />
 
             <button type='submit' className='btn-register'>
-                Salvar links <MdAddLink size={24} color='white'/>
+                Salvar links <MdAddLink size={24} color='#FFF'/>
             </button>
             </form>
         </div>
