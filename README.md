@@ -1,6 +1,4 @@
 <h1>DevLinks</h1>
-Projeto realizado no workshop de React do Sujeito programador. Criamos um site para gerenciar e compartilhar links.
-
 The project was made on Sujeito programador's React Workshop. We created a website to manage and share links.
 
 🛠️ Principais conceitos abordados (Key concepts covered):
@@ -11,13 +9,10 @@ The project was made on Sujeito programador's React Workshop. We created a websi
 - Hooks
 - Firebase (Firestore e Autenticação)
 
-💻 Como rodar o projeto localmente: Ao realizar o clone do repositório, é necessario rodar o comando npm install no diretório do projeto. Em seguida, é só rodar npm run start para servir o projeto localmente.
-
-After cloning the repository, it's necessary to run npm install on the project directory. Then, just run npm run start to serve locally.
+💻 After cloning the repository, it's necessary to run npm install on the project directory. Then, just run npm run start to serve locally.
 
 ![preview](./.github/1.png)
 ![preview](./.github/2.png)
 ![preview](./.github/3.png)
 ![preview](./.github/4.png)
 
-Desenvolvido com 💘 por Natasha Limeres
